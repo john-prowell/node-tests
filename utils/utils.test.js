@@ -10,19 +10,26 @@ it('should add two numbers', () => {
 //   }
 });
 
-it('should aysnc add two numbers', (done) => {
+it('should aysnc add two numbers', (done) => { // Done tells mocha to wait until done() is called before completeing test.
   utils.asyncAdd(4, 3, (sum) => {
-    expect(sum).toBe(7).toBeA('number');
+    expect(sum).toBeA('number').toBe(7);
     done();
   });
 });
 
 it('should square a number', () => {
   var res = utils.square(3);
-  expect(res).toBe(9).toBeA('number');
+  expect(res).toBeA('number').toBe(9);
   // if (res !== 9) {
   //   throw new Error(`Expected 9, but got ${res}`);
   // }
+});
+
+it('should async square a number', (done) => {
+  utils.asyncSquare(3, (res) => {
+    expect(res).toBeA('number').toBe(9);
+    done();
+  });
 });
 
 // should verify first and last names are set
